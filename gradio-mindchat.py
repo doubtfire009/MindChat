@@ -24,7 +24,7 @@ class mindchat_llm():
         for item in bot:
             chat_history.append((item[0], item[1]))
 
-        response, history = self.model.chat(self.tokenizer, question, history=None)
+        response, history = self.mindchat_model.chat(self.tokenizer, question, history=None)
         print("------test------")
         print(response)
         print("-----history-------")
