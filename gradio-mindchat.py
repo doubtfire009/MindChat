@@ -35,7 +35,7 @@ mt_llm = mindchat_llm()
 
 def doChatbot(message, bot):
 
-    answer = mt_llm.create_history_chat(message, bot)
+    response = mt_llm.create_history_chat(message, bot)
     # if "我: " in answer:
     #     res = answer.split("我: ")[-1]
     # elif "AI:" in answer:
@@ -46,7 +46,7 @@ def doChatbot(message, bot):
     #     res = answer.split("?")[-1]
     # else:
     #     res = answer
-    return res
+    return response
 
 def start_chatbot():
     gr.ChatInterface(
