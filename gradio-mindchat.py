@@ -1,7 +1,7 @@
 import gradio as gr
 from vllm import LLM, SamplingParams
 from modelscope import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
-
+import os
 
 
 os.environ["no_proxy"] = "localhost,127.0.0.1,::1"
@@ -24,7 +24,7 @@ class mindchat_llm():
         for item in bot:
             chat_history.append((item[0], item[1]))
 
-        response, history = model.chat(self.tokenizer, question, history=None)
+        response, history = self.model.chat(self.tokenizer, question, history=None)
         print("------test------")
         print(response)
         print("-----history-------")
@@ -57,7 +57,7 @@ def start_chatbot():
         theme="soft",
         submit_btn="发送",
         clear_btn="清空"
-    ).queue().launch(server_port=7000)
+    ).queue().launch(server_port=7000, server_name='0.0.0.0')
 
 # if __name__ == "__main__":
 
